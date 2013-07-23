@@ -1,0 +1,76 @@
+/* 
+    Document   : main
+    Created on : Jun 6, 2013, 10:48:12 AM
+    Author     : awakeman
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+} 
+
+.input-form {
+	position: relative;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	header.main {
+		position: relative;
+		height: 55px;
+		overflow: hidden;
+
+		.tmw-logo {
+			position: relative;
+			float: left;
+			width: 90px;
+			height: 50px;
+			border: 1px solid black;
+		}
+
+		.start-wheel {
+			position: relative;
+			float: left;
+			margin-top: 20px;
+			margin-left: 20px;
+		}
+	}
+
+	.wheel-form {
+		position: relative;
+		width: 45%;
+		border: 1px solid black;
+		margin-left: 10px;
+		float: left;
+		header {
+			position: relative;
+			text-align: center;
+		}
+
+		.wheel-title {
+			position: relative;
+			height: 25px;
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.wheel-categories {
+			position: relative;
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+
+		.add-new-category {
+			position: relative;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			margin-left: 20px;
+		}
+	}
+
+	.output {
+		position: relative;
+		clear: both;
+		padding-top: 20px;
+	}
+}

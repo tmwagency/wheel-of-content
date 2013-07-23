@@ -1,0 +1,319 @@
+// =======================
+// === APP.scss        ===
+// === Your app styles ===
+// =======================
+
+.spinners {
+	display:none; //initially display none
+}
+
+html,
+body {
+	width:100%;
+	height:100%;
+}
+
+body {
+	background:url('../img/bg-garden.jpg') no-repeat left top;
+	background-size:100% 100%;
+}
+.container {
+	position:relative;
+	padding-top:116px;
+}
+	.side-nav h1 {
+		margin-bottom:0px;
+		text-shadow: 0 0 10px $beige;
+
+		@include rotate(-8deg);
+	}
+
+		.new-garden {
+			@include rotate(-8deg);
+		}
+		.go-to-garden {
+			@include rotate(1deg);
+		}
+
+	.menu-options {
+		margin-left:10px;
+	}
+		.menu-options li,
+		.btn-spin {
+			float:left;
+			background:url('#{$img-path}/bg-title-wood.png') no-repeat left top;
+			background-size:100% 100%;
+			width:268px;
+			height:98px;
+			margin-bottom:20px;
+		}
+		.btn-spin {
+			width:180px;
+			margin-left:200px;
+
+			@include rotate(-4deg);
+		}
+			.menu-options a,
+			.btn-spin a {
+				display:block;
+				margin:25px auto;
+				padding:10px;
+				width:80%;
+
+				font-family: $headings-font-family;
+				@include font-size(24);
+				text-align: center;
+				color:$brown-green;
+				text-decoration: none;
+
+				background:#e0dbc2;
+				@include box-shadow(2px 2px 3px rgba(114, 100, 74, 1));
+				@include border-radius(2px);
+
+				@include transition(background 200ms ease-out);
+
+				&:hover {
+					@include transition(background 200ms ease-in);
+					background:#c8c356;
+				}
+			}
+
+	.wheel-title label {
+		@include font-size(30);
+		color:$brown;
+		margin-bottom:10px;
+	}
+	.wheel-form {
+		background:url('#{$img-path}/bg-cat-wood.png') no-repeat left top;
+		min-height:594px;
+
+		padding:40px 20px;
+	}
+
+	.wheel-categories {
+		overflow:scroll;
+		max-height:600px;
+	}
+	.category {
+		float:left;
+		width:100%;
+	}
+		.cat-input {
+			float:left;
+			margin-right:10px;
+
+			@include box-shadow(2px 2px 3px rgba(114, 100, 74, 1));
+		}
+		input.remove-category {
+			float:left;
+			border:0;
+			text-indent:100%;
+			width:35px;
+			height:35px;
+			padding:0;
+
+			background:url('#{$img-path}/btn-remove.png') no-repeat left top;
+		}
+
+	.add-category {
+		text-shadow: 0 0 1px rgba(114, 100, 74, 1);
+	}
+
+	.error {
+		position: absolute;
+		top: -10%;
+		left:50%;
+
+		margin: 0 0 0 -400px;
+		width:800px;
+		padding: 10px;
+
+		text-align: center;
+		color: #fff;
+
+		@include gradient-vertical(#a0787c, #876162);
+		@include border-radius(0 0 6px 6px);
+		@include box-shadow(0 1px 7px 2px #666);
+	}
+		.error.isShown {
+			@include prefixer(animation, showError 3s 1 ease-in-out, webkit moz ms spec);
+		}
+
+		@include keyframes(showError) {
+			0% { top: -10%; }
+			10% { top: 0%; }
+			90% { top: 0%; }
+			100% { top: -10%; }
+		}
+
+
+
+// ================
+// ===  WHEELS  ===
+// ================
+
+	.wheel-1 {
+		position:absolute;
+		top:236px;
+		left:0%;
+		width:453px;
+		height:453px;
+
+		background:url('#{$img-path}/bg-wheel-1.png') no-repeat left top;
+
+		& .inner-spinner {
+			position:relative;
+			background:url('#{$img-path}/wheel-1-inner.png') no-repeat left top;
+			width:382px;
+			height:382px;
+			margin:36px;
+		}
+	}
+	.wheel-2 {
+		position:absolute;
+		top:26px;
+		right:2%;
+		width:536px;
+		height:536px;
+
+		background:url('#{$img-path}/bg-wheel-2.png') no-repeat left top;
+
+		& .inner-spinner {
+			position:relative;
+			background:url('#{$img-path}/wheel-2-inner.png') no-repeat left top;
+			width:411px;
+			height:411px;
+			margin:63px;
+		}
+	}
+
+	.inner-spinner {
+		& h2 {
+			position:absolute;
+			top:50%;
+			left:0;
+
+			width:100%;
+			margin:-20px 0 0;
+
+			@include font-size(40);
+
+			text-align:center;
+		}
+	}
+
+	.inner-spinner.start-spin {
+		@include prefixer(animation, spin 10s 1 ease-in-out, webkit moz ms spec);
+	}
+
+	@include keyframes(spin) {
+		0% { @include transform(rotate(0deg)); }
+		100% { @include transform(rotate(8640deg)); }
+	}
+
+
+	.word-spinner-container {
+		position:absolute;
+		top:566px;
+		right:0;
+
+		background:url('#{$img-path}/bg-wood-hoz.png') no-repeat left top;
+		min-width:527px;
+		min-height:120px;
+
+		& p {
+			font-family: $headings-font-family;
+			@include font-size(26);
+			@include line-height(38);
+			text-align: center;
+
+			@include transition(all 600ms ease-out);
+
+			&.is-finished {
+				@include transition(all 600ms ease-in);
+
+				background: #876162; color: white;
+			}
+		}
+	}
+
+	@include keyframes(flashText) {
+		0% { background: white; color: black; }
+		100% {  }
+	}
+
+	.word-spinner {
+		float:left;
+		background:white;
+		@include box-shadow(2px 2px 3px rgba(114, 100, 74, 1));
+		@include border-radius(2px);
+
+		width:40%;
+		padding:5px 10px;
+		margin:34px 20px 0 0;
+	}
+	#word-spinner-1 {
+		margin-left:40px;
+	}
+	#word-spinner-2 {
+
+	}
+
+// ==============
+// === FOOTER ===
+// ==============
+
+
+
+// ======================
+// === HOME / LANDING ===
+// ======================
+
+
+
+// ===========================================
+// === Media queries for responsive design ===
+// ===========================================
+// NOTE: these will need to be adjusted, possibly moved into another file
+
+// Retina media Queries
+// Credit: http://dev.mattnt.com/retina-results.html
+@media print,
+	(-o-min-device-pixel-ratio: 5/4),
+	(-webkit-min-device-pixel-ratio: 1.25),
+	(min-resolution: 120dpi) {
+
+	// * {
+	// 	background-image: url(@imgSprite2x);
+	// 	background-size: @imgSpriteDimensions;
+	// }
+
+}
+
+// === 400> ===
+@include respond-min($breakpoint-narrow) {
+
+}
+// === end 400> ===
+
+
+
+// === 768> ===
+@include respond-min($breakpoint-narrow) {
+
+}
+// === end 768> ===
+
+
+// === 992> ===
+@include respond-min($breakpoint-wide) {
+
+}
+// === end 992> ===
+
+
+// === 1382> ===
+@include respond-min($breakpoint-huge) {
+
+}
+// === end 1382> ===
